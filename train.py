@@ -39,11 +39,11 @@ print(the_image, the_image.size())
 # the_showable_image.show()
 
 
-def train(epochs=3, batch_size=32, modelfile=None, device="cpu"):
+def train(epochs=3, batch_size=32, modelfile=None, device="cpu", learning_rate=0.001): # Learning rate set 0.001
     loader = DataLoader(traindataset, batch_size=batch_size, shuffle=True)
 
     model = WikiArtModel().to(device)
-    optimizer = Adam(model.parameters(), lr=0.01)
+    optimizer = Adam(model.parameters(), lr=learning_rate) # Set lr as learning rate 
     criterion = nn.NLLLoss().to(device)
     
     for epoch in range(epochs):
@@ -56,7 +56,7 @@ def train(epochs=3, batch_size=32, modelfile=None, device="cpu"):
             output = model(X)
             loss = criterion(output, y)
             loss.backward()
-            accumulate_loss += loss
+            accumulate_loss += loss.item() # Convert to scalar
             optimizer.step()
 
         print("In epoch {}, loss = {}".format(epoch, accumulate_loss))
