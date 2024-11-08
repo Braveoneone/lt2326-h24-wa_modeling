@@ -81,7 +81,7 @@ def get_class_weights(dataset):
     return torch.tensor(class_weights, dtype=torch.float32)
 
 # Train the autoencoder model
-def train_autoencoder(epochs=2, batch_size=32, learning_rate=0.001, device="cpu"):
+def train_autoencoder(epochs=50, batch_size=32, learning_rate=0.001, device=config["device"]):
     # Load the dataset
     traindataset = WikiArtDataset(trainingdir, device=device)
     trainloader = DataLoader(traindataset, batch_size=batch_size, shuffle=True)
