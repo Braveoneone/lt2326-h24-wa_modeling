@@ -39,7 +39,9 @@ Learning rate = 0.001
 epochs = 50 
 batch_size = 32
 ```
-
+#### Results
+![](https://github.com/Braveoneone/lt2326-h24-wa_modeling/blob/main/cluster_visualization.png)
+![](https://github.com/Braveoneone/lt2326-h24-wa_modeling/blob/main/pca_label_visualization.png)
 # Part 3
 I implement the autoencoder in a simple way because I stuck in a tricky problem. Style embedding concatenation is used in the decoder. But how to ensure that the concatenated tensor dimensions are correct and match the input dimensions of the decoder is a great challenge for me and I debug for a long time. However, I couldn't solve this problem. Therefore, I have to select a easier way to try the part 3. Thus, the result is bad and not clearly at all.
 
