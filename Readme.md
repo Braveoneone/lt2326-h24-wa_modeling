@@ -62,6 +62,7 @@ Forward propagation: In the process of forward propagation, the input image and 
 
 * Test phase: In a batch of data, the model is propagated forward and the image after style fusion is output.
 
+#### Results
 ![](https://github.com/Braveoneone/lt2326-h24-wa_modeling/blob/main/before_0.png)
 #### I couldn't get the right picture with style
 ![](https://github.com/Braveoneone/lt2326-h24-wa_modeling/blob/main/after_0.png)
