@@ -38,7 +38,7 @@ Then I make use of weighted losses. Although the get_class_weights function calc
 ```
 
 # Part 3
-Implement the autoencoder in a simple way because I stuck in the problem. Style embedding concatenation is used in the decoder. But how to ensure that the concatenated tensor dimensions are correct and match the input dimensions of the decoder is a great challenge for me and I debug for a long time. However, I couldn't solve this problem. Therefore, I have to select a easier way to try the part 3. Thus, the result is bad and not clearly at all.
+I implement the autoencoder in a simple way because I stuck in the problem. Style embedding concatenation is used in the decoder. But how to ensure that the concatenated tensor dimensions are correct and match the input dimensions of the decoder is a great challenge for me and I debug for a long time. However, I couldn't solve this problem. Therefore, I have to select a easier way to try the part 3. Thus, the result is bad and not clearly at all.
 
 #### Implement in file part_3.py
 ```
