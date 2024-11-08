@@ -24,39 +24,39 @@ Then I make use of weighted losses. Although the get_class_weights function calc
 
 # Part 2
 #### Implement in file part_2.py
+* The autoencoder was used to learn image features from the WikiArt dataset.
+* The autoencoder contains an encoder and a decoder, where the encoder compresses the image into a low-dimensional representation.
+* The mean square error (MSE) is used as a loss function and the model is optimized by the Adam optimizer.
+* After training, the underlying features of the image are extracted and reduced to two dimensions by PCA.
+* The KMeans clustering algorithm is used to cluster the features after dimensionality reduction.
+* The clustering result is compared with the real label, and the clustering effect is visualized.
+* The results show that KMeans can classify images according to artistic style well.
+* The PCA distribution shows that images of different artistic styles are separated in the feature space.
+* The autoencoder successfully learns effective features and supports clustering tasks.  
+#### Through this method, the effective classification and analysis of artistic images can be realized.
 ```
-1. The autoencoder was used to learn image features from the WikiArt dataset.
-2. The autoencoder contains an encoder and a decoder, where the encoder compresses the image into a low-dimensional representation.
-3. The mean square error (MSE) is used as a loss function and the model is optimized by the Adam optimizer.
-4. After training, the underlying features of the image are extracted and reduced to two dimensions by PCA.
-5. The KMeans clustering algorithm is used to cluster the features after dimensionality reduction.
-6. The clustering result is compared with the real label, and the clustering effect is visualized.
-7. The results show that KMeans can classify images according to artistic style well.
-8. The PCA distribution shows that images of different artistic styles are separated in the feature space.
-9. The autoencoder successfully learns effective features and supports clustering tasks.
-10. Through this method, the effective classification and analysis of artistic images can be realized.
+Learning rate = 0.001
+epochs = 50 
+batch_size = 32
 ```
 
 # Part 3
-I implement the autoencoder in a simple way because I stuck in the problem. Style embedding concatenation is used in the decoder. But how to ensure that the concatenated tensor dimensions are correct and match the input dimensions of the decoder is a great challenge for me and I debug for a long time. However, I couldn't solve this problem. Therefore, I have to select a easier way to try the part 3. Thus, the result is bad and not clearly at all.
+I implement the autoencoder in a simple way because I stuck in a tricky problem. Style embedding concatenation is used in the decoder. But how to ensure that the concatenated tensor dimensions are correct and match the input dimensions of the decoder is a great challenge for me and I debug for a long time. However, I couldn't solve this problem. Therefore, I have to select a easier way to try the part 3. Thus, the result is bad and not clearly at all.
 
 #### Implement in file part_3.py
-```
-The AutoencoderWithStyle class defines an autoencoder model that includes an encoder (which encodes images into features), a style embedding layer (which converts style information into features), and a decoder (which decodes features back into images).
+* AutoencoderWithStyle class: defines an autoencoder model that includes an encoder (which encodes images into features), a style embedding layer (which converts style information into features), and a decoder (which decodes features back into images).
 
-Encoder: Consists of multiple convolutional layers that gradually compress the input image from 3 channels (RGB) to a 1024 dimensional feature vector.
+* Encoder: Consists of multiple convolutional layers that gradually compress the input image from 3 channels (RGB) to a 1024 dimensional feature vector.
 Style embedding layer: The style vector (128 dimensional) is transformed into 1024 dimensional features through the full connection layer, and the image features are combined.
 
-Decoder: The combined feature is restored to an image through the deconvolution layer, and the RGB image of the same size as the input image is output.
+* Decoder: The combined feature is restored to an image through the deconvolution layer, and the RGB image of the same size as the input image is output.
 Forward propagation: In the process of forward propagation, the input image and style embedding are combined after processing by the encoder and style embedding layer, and finally the image is reconstructed by the decoder.
 
-save_images function: Defines a function to save images before and after processing. The image is saved in PNG format and named.
+* Save_images function: Defines a function to save images before and after processing. The image is saved in PNG format and named.
 
-Data set loading: Use the ImageFolder to load the data set from the specified directory and bulk load through the DataLoader.
+* Data set loading: Use the ImageFolder to load the data set from the specified directory and bulk load through the DataLoader.
 
-Image conversion: Preprocessing of images, including resizing (64x64) and converting to Tensor format.
+* Image conversion: Preprocessing of images, including resizing (64x64) and converting to Tensor format.
 
-Test phase: In a batch of data, the model is propagated forward and the image after style fusion is output.
-
-Save the image: The processed image and the original image are saved to the specified path for visual comparison.
+* Test phase: In a batch of data, the model is propagated forward and the image after style fusion is output.
 
