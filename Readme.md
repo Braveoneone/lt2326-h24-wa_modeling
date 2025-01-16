@@ -1,3 +1,6 @@
+# Machine Learning for statistical NLP Advanced
+# Report Yiyi Wang
+
 # Bonus A
 #### Improved Convolutional neural Network structure (file: wikiart.py) :   
 The current model structure is too simple, consisting of only one convolutional layer and one fully connected layer. Convolution layers, Batch Normalization, and Dropout can be added to improve the feature extraction capability of the model and avoid overfitting.  
